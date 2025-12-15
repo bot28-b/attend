@@ -21,9 +21,12 @@ function AdminPanel({ user, apiBaseUrl }) {
       const response = await axios.get(`${apiBaseUrl}/api/leaves/pending`, {
         headers: { Authorization: `Bearer ${token}` }
       })
-      setLeaveRequests(response.data)
+      console.log('Leave requests fetched:', response.data)
+      setLeaveRequests(response.data || [])
     } catch (err) {
       console.error('Error fetching leave requests:', err)
+      setMessage({ type: 'error', text: `Failed to fetch leave requests: ${err.message}` })
+      setLeaveRequests([])
     }
   }
 
@@ -33,9 +36,11 @@ function AdminPanel({ user, apiBaseUrl }) {
       const response = await axios.get(`${apiBaseUrl}/api/attendance/all`, {
         headers: { Authorization: `Bearer ${token}` }
       })
-      setAttendanceRecords(response.data)
+      console.log('Attendance records fetched:', response.data)
+      setAttendanceRecords(response.data || [])
     } catch (err) {
       console.error('Error fetching attendance records:', err)
+      setAttendanceRecords([])
     }
   }
 
@@ -45,9 +50,11 @@ function AdminPanel({ user, apiBaseUrl }) {
       const response = await axios.get(`${apiBaseUrl}/api/users`, {
         headers: { Authorization: `Bearer ${token}` }
       })
-      setUsers(response.data)
+      console.log('Users fetched:', response.data)
+      setUsers(response.data || [])
     } catch (err) {
       console.error('Error fetching users:', err)
+      setUsers([])
     }
   }
 

@@ -4,6 +4,7 @@ import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 import AdminPanel from './components/AdminPanel'
 import AdvancedDashboard from './components/AdvancedDashboard'
+import AdminDashboard from './components/AdminDashboard'
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || `http://${window.location.hostname}:8000`
 
@@ -96,7 +97,7 @@ function App() {
 
           {/* Content */}
           {user?.role === 'admin' ? (
-            <AdvancedDashboard user={user} apiBaseUrl={API_BASE_URL} />
+            <AdminDashboard user={user} apiBaseUrl={API_BASE_URL} />
           ) : (
             <Dashboard user={user} apiBaseUrl={API_BASE_URL} />
           )}
