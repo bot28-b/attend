@@ -6,6 +6,7 @@ from utils import hash_password
 
 def initialize_data():
     os.makedirs(os.path.dirname(USERS_FILE), exist_ok=True)
+    today = datetime.now()
     
     users = [
         {
