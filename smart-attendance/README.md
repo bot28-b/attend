@@ -58,6 +58,7 @@ smart-attendance/
 │   ├── init_data.py
 │   ├── requirements.txt
 │   └── Dockerfile
+├── docker-compose.yml       # Docker Compose configuration
 ├── DEPLOYMENT_GUIDE.md
 └── README.md
 ```
@@ -87,7 +88,21 @@ Backend will be available at `http://localhost:8000`
 
 ## Docker Deployment
 
-### Build Images
+### Docker Compose (Recommended)
+
+The easiest way to run the entire system:
+
+```bash
+# Build and start services
+docker-compose up -d --build
+
+# View logs
+docker-compose logs -f
+```
+
+### Manual Docker Build & Run (Alternative)
+
+#### Build Images
 
 ```bash
 # Frontend
@@ -99,7 +114,7 @@ cd backend
 docker build -t smart-attendance-backend:latest .
 ```
 
-### Run Containers
+#### Run Containers
 
 ```bash
 # Backend (port 8000)

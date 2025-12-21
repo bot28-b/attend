@@ -93,6 +93,41 @@ docker start smart-attendance-backend smart-attendance-frontend
 
 ---
 
+## Docker Compose (Recommended)
+
+Docker Compose is the easiest way to run the entire system with a single command.
+
+### Prerequisites
+- Docker and Docker Compose installed
+
+### Build and Run
+
+```bash
+# Start all services
+docker-compose up -d --build
+```
+
+This will:
+1. Build the frontend and backend images
+2. Start both containers in the background
+3. Mount the data directory for persistence
+4. Set up an internal network for communication
+
+### Manage Services
+
+```bash
+# View service status
+docker-compose ps
+
+# View real-time logs
+docker-compose logs -f
+
+# Stop and remove containers
+docker-compose down
+```
+
+---
+
 ## AWS EC2 Deployment
 
 See `DEPLOYMENT_GUIDE.md` for complete AWS EC2 deployment instructions.
